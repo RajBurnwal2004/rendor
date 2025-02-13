@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch Price Prediction</title>
+</head>
+<body>
+    <h2>Enter Watch Details</h2>
+    <form action="/predict" method="post">
+        <label for="movement">Movement:</label>
+        <input type="text" id="movement" name="movement" required><br><br>
+        
+        <label for="case_material">Case Material:</label>
+        <input type="text" id="case_material" name="case_material" required><br><br>
+        
+        <label for="bracelet_material">Bracelet Material:</label>
+        <input type="text" id="bracelet_material" name="bracelet_material" required><br><br>
+        
+        <label for="condition">Condition:</label>
+        <input type="text" id="condition" name="condition" required><br><br>
+        
+        <label for="scope_of_delivery">Scope of Delivery:</label>
+        <input type="text" id="scope_of_delivery" name="scope_of_delivery" required><br><br>
+        
+        <label for="gender">Gender:</label>
+        <input type="text" id="gender" name="gender" required><br><br>
+        
+        <label for="availability">Availability:</label>
+        <input type="text" id="availability" name="availability" required><br><br>
+        
+        <label for="crystal">Crystal:</label>
+        <input type="text" id="crystal" name="crystal" required><br><br>
+        
+        <label for="clasp">Clasp:</label>
+        <input type="text" id="clasp" name="clasp" required><br><br>
+        
+        <input type="submit" value="Predict Price">
+    </form>
+
+    <!-- Displaying the result from the Flask app -->
+    {% if prediction %}
+        <h3>{{ prediction }}</h3>
+    {% endif %}
+    
+</body>
+</html>
