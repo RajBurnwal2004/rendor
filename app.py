@@ -1,11 +1,6 @@
 from flask import Flask, request, render_template
 import pickle
 import numpy as np
-import streamlit as st
-import sys
-
-if __name__ == "__main__":
-    st.set_page_config(page_title="Watch Price Predictor", layout="wide")
 
 app = Flask(__name__)
 
