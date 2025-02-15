@@ -14,13 +14,28 @@
             height: 100vh;
             margin: 0;
         }
+        .main-container {
+            display: flex;
+            gap: 20px;
+            max-width: 900px;
+            width: 100%;
+            justify-content: space-between;
+        }
         .container {
             background: white;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-            width: 350px;
+            width: 400px;
             text-align: center;
+        }
+        .prediction-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: left;
         }
         h2 {
             color: #333;
@@ -52,80 +67,84 @@
         .btn:hover {
             background-color: #0056b3;
         }
-        .prediction {
-            margin-top: 20px;
-            font-size: 18px;
-            color: #28a745;
+        .choices {
+            margin-top: 15px;
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 5px;
+            text-align: left;
+            font-size: 14px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h2>Watch Price Prediction</h2>
-        <form action="/predict" method="post">
-            <label for="movement">Movement:</label>
-            <select id="movement" name="movement">
-                <option value="Solar">Solar</option>
-                <option value="Smartwatch">Smartwatch</option>
-                <option value="Quartz">Quartz</option>
-                <option value="Automatic">Automatic</option>
-                <option value="Manual winding">Manual winding</option>
-            </select>
+    <div class="main-container">
+        <div class="container">
+            <h2>Watch Price Prediction</h2>
+            <form action="/predict" method="post">
+                <label for="movement">Movement:</label>
+                <select id="movement" name="movement">
+                    <option value="Solar">Solar</option>
+                    <option value="Smartwatch">Smartwatch</option>
+                    <option value="Quartz">Quartz</option>
+                    <option value="Automatic">Automatic</option>
+                    <option value="Manual winding">Manual winding</option>
+                </select>
 
-            <label for="case_material">Case Material:</label>
-            <select id="case_material" name="case_material">
-                <option value="Plastic">Plastic</option>
-                <option value="Gold-plated">Gold-plated</option>
-                <option value="Brass">Brass</option>
-                <option value="Tungsten">Tungsten</option>
-                <option value="Gold/Steel">Gold/Steel</option>
-                <option value="Steel">Steel</option>
-                <option value="Bronze">Bronze</option>
-                <option value="Aluminum">Aluminum</option>
-                <option value="Sapphire crystal">Sapphire crystal</option>
-                <option value="Silver">Silver</option>
-                <option value="Yellow gold">Yellow gold</option>
-                <option value="Ceramic">Ceramic</option>
-                <option value="Titanium">Titanium</option>
-                <option value="Palladium">Palladium</option>
-                <option value="Red gold">Red gold</option>
-                <option value="White gold">White gold</option>
-                <option value="Rose gold">Rose gold</option>
-                <option value="Tantalum">Tantalum</option>
-                <option value="Carbon">Carbon</option>
-                <option value="Platinum">Platinum</option>
-            </select>
+                <label for="case_material">Case Material:</label>
+                <select id="case_material" name="case_material">
+                    <option value="Plastic">Plastic</option>
+                    <option value="Gold-plated">Gold-plated</option>
+                    <option value="Brass">Brass</option>
+                    <option value="Tungsten">Tungsten</option>
+                    <option value="Gold/Steel">Gold/Steel</option>
+                    <option value="Steel">Steel</option>
+                    <option value="Bronze">Bronze</option>
+                    <option value="Aluminum">Aluminum</option>
+                    <option value="Sapphire crystal">Sapphire crystal</option>
+                    <option value="Silver">Silver</option>
+                    <option value="Yellow gold">Yellow gold</option>
+                    <option value="Ceramic">Ceramic</option>
+                    <option value="Titanium">Titanium</option>
+                    <option value="Palladium">Palladium</option>
+                    <option value="Red gold">Red gold</option>
+                    <option value="White gold">White gold</option>
+                    <option value="Rose gold">Rose gold</option>
+                    <option value="Tantalum">Tantalum</option>
+                    <option value="Carbon">Carbon</option>
+                    <option value="Platinum">Platinum</option>
+                </select>
 
-            <label for="bracelet_material">Bracelet Material:</label>
-            <select id="bracelet_material" name="bracelet_material">
-                <option value="Brass">Brass</option>
-                <option value="Gold-plated">Gold-plated</option>
-                <option value="Silver">Silver</option>
-                <option value="Steel">Steel</option>
-                <option value="Silicon">Silicon</option>
-                <option value="Gold/Steel">Gold/Steel</option>
-                <option value="Ostrich skin">Ostrich skin</option>
-                <option value="Calf skin">Calf skin</option>
-                <option value="Lizard skin">Lizard skin</option>
-                <option value="Aluminium">Aluminium</option>
-                <option value="Leather">Leather</option>
-                <option value="Snake skin">Snake skin</option>
-                <option value="Titanium">Titanium</option>
-                <option value="Ceramic">Ceramic</option>
-                <option value="Textile">Textile</option>
-                <option value="Satin">Satin</option>
-                <option value="Shark skin">Shark skin</option>
-                <option value="Red gold">Red gold</option>
-                <option value="Plastic">Plastic</option>
-                <option value="Rubber">Rubber</option>
-                <option value="Yellow gold">Yellow gold</option>
-                <option value="Crocodile skin">Crocodile skin</option>
-                <option value="Alligator skin">Alligator skin</option>
-                <option value="White gold">White gold</option>
-                <option value="Rose gold">Rose gold</option>
-                <option value="Platinum">Platinum</option>
-            </select>
-            <label for="condition">Condition:</label>
+                <label for="bracelet_material">Bracelet Material:</label>
+                <select id="bracelet_material" name="bracelet_material">
+                    <option value="Brass">Brass</option>
+                    <option value="Gold-plated">Gold-plated</option>
+                    <option value="Silver">Silver</option>
+                    <option value="Steel">Steel</option>
+                    <option value="Silicon">Silicon</option>
+                    <option value="Gold/Steel">Gold/Steel</option>
+                    <option value="Ostrich skin">Ostrich skin</option>
+                    <option value="Calf skin">Calf skin</option>
+                    <option value="Lizard skin">Lizard skin</option>
+                    <option value="Aluminium">Aluminium</option>
+                    <option value="Leather">Leather</option>
+                    <option value="Snake skin">Snake skin</option>
+                    <option value="Titanium">Titanium</option>
+                    <option value="Ceramic">Ceramic</option>
+                    <option value="Textile">Textile</option>
+                    <option value="Satin">Satin</option>
+                    <option value="Shark skin">Shark skin</option>
+                    <option value="Red gold">Red gold</option>
+                    <option value="Plastic">Plastic</option>
+                    <option value="Rubber">Rubber</option>
+                    <option value="Yellow gold">Yellow gold</option>
+                    <option value="Crocodile skin">Crocodile skin</option>
+                    <option value="Alligator skin">Alligator skin</option>
+                    <option value="White gold">White gold</option>
+                    <option value="Rose gold">Rose gold</option>
+                    <option value="Platinum">Platinum</option>
+                </select>
+                <label for="condition">Condition:</label>
             <select id="condition" name="condition">
                 <option value="Used (Incomplete)">Used (Incomplete)</option>
                 <option value="Used (Poor)">Used (Poor)</option>
@@ -175,14 +194,28 @@
                 <option value="Double-fold clasp">Double-fold clasp</option>
                 <option value="No clasp">No clasp</option>
             </select>
-            
-            <button type="submit" class="btn">Predict Price</button>
-        </form>
+                <button type="submit" class="btn">Predict Price</button>
+            </form>
+        </div>
 
         {% if prediction %}
+        <div class="prediction-container">
             <div class="prediction">
-                <h3>{{ prediction }}</h3>
+                <h3>Predicted Price: {{ prediction }}</h3>
             </div>
+            <div class="choices">
+                <h4>Your Selections:</h4>
+                <p><strong>Movement:</strong> {{ request.form['movement'] }}</p>
+                <p><strong>Case Material:</strong> {{ request.form['case_material'] }}</p>
+                <p><strong>Bracelet Material:</strong> {{ request.form['bracelet_material'] }}</p>
+                <p><strong>Condition:</strong> {{ request.form['condition'] }}</p>
+                <p><strong>Scope of Delivery:</strong> {{ request.form['scope_of_delivery'] }}</p>
+                <p><strong>Gender:</strong> {{ request.form['gender'] }}</p>
+                <p><strong>Availability:</strong> {{ request.form['availability'] }}</p>
+                <p><strong>Crystal:</strong> {{ request.form['crystal'] }}</p>
+                <p><strong>Clasp:</strong> {{ request.form['clasp'] }}</p>
+            </div>
+        </div>
         {% endif %}
     </div>
 </body>
